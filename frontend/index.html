@@ -1,0 +1,31 @@
+<! doctype html>
+<html lang="en">
+<head>
+    <title>REGISTRO DE GASTOS</title>
+</head>
+<body>
+    <h1>REGISTRO DE GASTOS</h1>
+    <div class ="formulario">
+        <div class="campo">
+           <option value="ingresos">Ingresos</option>
+           <option value="gastos">Gastos</option>
+        </div>
+        <label for="monto" class="campo" >monto</label>
+        <input type="number" id="monto" name="monto" placeholder="Ingrese el monto">
+    </div>
+    <div class="campo">
+        <select name="categoria" id="categoria">
+            <option value="alimentacion">Alimentación</option>
+            <option value="transporte">Transporte</option>
+            <option value="vivienda">Vivienda</option>
+            <option value="salud">Salud</option>
+            <option value="otros">Otros</option>
+        </select>
+    </div>
+    <div class="campo">
+        <label for="fecha" class="campo">Fecha</label>
+        <input type="date" id="fecha" name="fecha">
+    </div>
+    <button type="submit" class="campo">Registrar</button>
+</body>
+</html>
