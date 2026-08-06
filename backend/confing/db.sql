@@ -15,6 +15,16 @@ create table transacciones(
     foreign key (categoria_id) references categorias(id)
 );
 insert into categorias(nombre, descripcion, fecha_creacion) values
-('alimentos', 'Productos alimenticios', '2023-01-01');
+('alimentos', 'Productos alimenticios', '2023-01-01'),
+('alimentos', 'Productos alimenticios', '2023-01-02'),
+('alimentos', 'Productos alimenticios', '2023-01-03'),
+('alimentos', 'Productos alimenticios', '2023-01-04'),
+('alimentos', 'Productos alimenticios', '2023-01-05'),
+('alimentos', 'Productos alimenticios', '2023-01-06'),
+('alimentos', 'Productos alimenticios', '2023-01-07');
 insert into transacciones(categoria_id, monto, fecha, descripcion) values
-(1, 100.00, '2023-01-01', 'Compra de alimentos');
+(1, 100.00, '2023-01-01', 'Compra de alimentos'),
+(1, 100.00, '2023-01-02', 'Compra de alimentos'),
+(1, 100.00, '2023-01-03', 'Compra de alimentos'),
+(1, 100.00, '2023-01-04', 'Compra de alimentos'),
+(1, 100.00, '2023-01-05', 'Compra de alimentos');
