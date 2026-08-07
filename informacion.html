@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Registrada</title>
+    <link rel="stylesheet" href="/frontend/css/styls.css">
+</head>
+<body>
+    <main class="app-shell">
+        <section class="card">
+            <h1>Información Registrada</h1>
+            <div class="botones">
+                <button type="button" id="btn-cargar" class="boton-secundario">Cargar registros</button>
+                <button type="button" class="boton-secundario" id="btn-volver">Volver al formulario</button>
+            </div>
+            <section id="lista-registros" class="lista-registros">
+                <p>Cargando registros...</p>
+            </section>
+        </section>
+    </main>
+    <script>
+        const listaRegistros = document.getElementById('lista-registros');
+        const btnCargar = document.getElementById('btn-cargar');
+        const btnVolver = document.getElementById('btn-volver');
+
+        btnVolver.addEventListener('click', () => {
+            window.location.href = '/frontend/index.html';
+        });
+
+        async function cargarRegistros() {
+            try {
+                const response = await fetch('http://localhost:3000/api/transacciones');
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'No se pudo cargar la información');
+                }
+
+                if (!data.length) {
+                    listaRegistros.innerHTML = '<p>No hay transacciones registradas aún.</p>';
+                    return;
+                }
+
+                listaRegistros.innerHTML = data.map(registro => `
+                    <article class="registro-card">
+                        <p><strong>ID:</strong> ${registro.id}</p>
+                        <p><strong>Categoría:</strong> ${registro.categoria}</p>
+                        <p><strong>Monto:</strong> $${parseFloat(registro.monto).toFixed(2)}</p>
+                        <p><strong>Fecha:</strong> ${registro.fecha}</p>
+                        <p><strong>Descripción:</strong> ${registro.descripcion}</p>
+                    </article>
+                `).join('');
+            } catch (error) {
+                listaRegistros.innerHTML = `<p class="error">${error.message}</p>`;
+            }
+        }
+
+        btnCargar.addEventListener('click', cargarRegistros);
+        cargarRegistros();
+    </script>
+</body>
+</html>

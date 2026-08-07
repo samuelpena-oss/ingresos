@@ -86,6 +86,23 @@ select {
     background-repeat: no-repeat;
 }
 
+.botones {
+    display: grid;
+    gap: 0.75rem;
+}
+
+@media (min-width: 400px) {
+    .botones {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.boton-secundario {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e7e9ef;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
 button {
     cursor: pointer;
     border: none;
@@ -106,6 +123,25 @@ button:focus-visible {
 
 button:active {
     transform: translateY(0);
+}
+
+.documentacion {
+    margin-top: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #e7e9ef;
+}
+
+.documentacion h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.15rem;
+}
+
+.documentacion p {
+    margin: 0.4rem 0;
+    line-height: 1.5;
 }
 
 @media (max-width: 480px) {
