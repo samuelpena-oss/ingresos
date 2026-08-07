@@ -24,7 +24,46 @@ insert into categorias(nombre, descripcion, fecha_creacion) values
 ('alimentos', 'Productos alimenticios', '2023-01-07');
 insert into transacciones(categoria_id, monto, fecha, descripcion) values
 (1, 100.00, '2023-01-01', 'Compra de alimentos'),
-(1, 100.00, '2023-01-02', 'Compra de alimentos'),
-(1, 100.00, '2023-01-03', 'Compra de alimentos'),
-(1, 100.00, '2023-01-04', 'Compra de alimentos'),
-(1, 100.00, '2023-01-05', 'Compra de alimentos');
+(2, 100.00, '2023-01-02', 'Compra de alimentos'),
+(3, 100.00, '2023-01-03', 'Compra de alimentos'),
+(4, 100.00, '2023-01-04', 'Compra de alimentos'),
+(5, 100.00, '2023-01-05', 'Compra de alimentos');
+
+SELECT * FROM categorias;
+
+SELECT * FROM transacciones;
+
+SELECT * 
+FROM categorias
+WHERE nombre = 'alimentos';
+
+SELECT *
+FROM transacciones
+order by fecha ASC;
+
+SELECT t.id,
+       t.monto,
+       t.fecha,
+       t.descripcion,
+       c.nombre AS categoria
+FROM transacciones t
+JOIN categorias c
+  ON t.categoria_id = c.id;
+
+  SELECT c.nombre AS categoria,
+       SUM(t.monto) AS total_gastado
+FROM transacciones t
+JOIN categorias c
+  ON t.categoria_id = c.id
+GROUP BY c.nombre;
+
+SELECT c.nombre AS categoria,
+       COUNT(*) AS num_transacciones
+FROM transacciones t
+JOIN categorias c
+  ON t.categoria_id = c.id
+GROUP BY c.nombre;
+
+SELECT * 
+FROM transacciones
+WHERE fecha BETWEEN '2023-01-01' AND '2023-01-05';
