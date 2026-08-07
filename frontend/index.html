@@ -38,6 +38,7 @@
                 </div>
                 <div class="botones">
                     <button type="button" id="btn-documentar">Documentar</button>
+                    <button type="button" id="btn-ver-informacion">Ver registros</button>
                     <button type="submit">Registrar</button>
                 </div>
             </form>
@@ -53,6 +54,8 @@
             documentacion.innerHTML = html;
             documentacion.hidden = false;
         }
+
+        const btnVerInformacion = document.getElementById('btn-ver-informacion');
 
         btnDocumentar.addEventListener('click', () => {
             const tipo = document.getElementById('tipo').value;
@@ -73,6 +76,10 @@
                 <p><strong>Fecha:</strong> ${fecha}</p>
                 <p><strong>Descripción:</strong> Información lista para guardar en la base de datos.</p>
             `);
+        });
+
+        btnVerInformacion.addEventListener('click', () => {
+            window.location.href = '/informacion.html';
         });
 
         formulario.addEventListener('submit', async (event) => {
