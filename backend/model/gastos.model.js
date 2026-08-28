@@ -1,7 +1,8 @@
 const db = require("../confing/db")
 class GastosModel{
 static async consultarGastos(){
-       const resultados = await db.query("SELECT * FROM gastos");
+       const [resultados] = await db.query("SELECT * FROM categorias");
+
        return resultados;
 }
 }
