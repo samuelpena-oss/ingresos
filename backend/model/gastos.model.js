@@ -5,3 +5,4 @@ static async consultarGastos(){
        return resultados;
 }
 }
+module.exports = GastosModel
