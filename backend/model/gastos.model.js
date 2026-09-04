@@ -5,5 +5,10 @@ static async consultarGastos(){
 
        return resultados;
 }
+static async consultarTransacciones(){
+       const [resultados] = await db.query("SELECT * FROM transacciones");
+
+       return resultados;
+}
 }
 module.exports = GastosModel

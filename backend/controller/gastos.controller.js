@@ -6,5 +6,11 @@ static async consultarGastos(request,response){
         data: movimientos
      })
 }
+static async consultarTransacciones(request,response){
+     const movimientos = await model.consultarTransacciones()
+     response.status(200).json({
+        data: movimientos
+     })
+} 
 }
 module.exports = GastosController;
