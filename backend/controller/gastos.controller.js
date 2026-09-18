@@ -14,7 +14,7 @@ static async consultarTransacciones(request,response){
 }
 static async crearregistro(request, response) {
      const datosmovimiento = request.body;
-     const crearregistro = await model.crearRegistros(datosmovimiento)
+     const crearregistro = await model.crearRegistros(datosmovimiento);
    
     
 }
