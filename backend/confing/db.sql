@@ -17,18 +17,18 @@ create table transacciones(
 );
 insert into categorias(nombre, descripcion, fecha_creacion) values
 ('alimentos', 'Productos alimenticios', '2023-01-01'),
-('alimentos', 'Productos alimenticios', '2023-01-02'),
-('alimentos', 'Productos alimenticios', '2023-01-03'),
-('alimentos', 'Productos alimenticios', '2023-01-04'),
-('alimentos', 'Productos alimenticios', '2023-01-05'),
-('alimentos', 'Productos alimenticios', '2023-01-06'),
-('alimentos', 'Productos alimenticios', '2023-01-07');
+('vivienda', 'Arriendo y servicios del hogar', '2023-01-02'),
+('transporte', 'Movilidad y combustible', '2023-01-03'),
+('salud', 'Consultas y medicamentos', '2023-01-04'),
+('entretenimiento', 'Ocio y esparcimiento', '2023-01-05'),
+('educacion', 'Cursos y materiales de estudio', '2023-01-06'),
+('servicios', 'Servicios públicos y suscripciones', '2023-01-07');
 insert into transacciones(tipo, categoria_id, monto, fecha, descripcion) values
-('gastos', 1, 100.00, '2023-01-01', 'Compra de alimentos'),
-('gastos', 2, 100.00, '2023-01-02', 'Compra de alimentos'),
-('gastos', 3, 100.00, '2023-01-03', 'Compra de alimentos'),
-('gastos', 4, 100.00, '2023-01-04', 'Compra de alimentos'),
-('gastos', 5, 100.00, '2023-01-05', 'Compra de alimentos');
+('gasto', 1, 100.00, '2023-01-01', 'Compra de alimentos'),
+('gasto', 2, 850000.00, '2023-01-02', 'Pago de arriendo'),
+('gasto', 3, 45000.00, '2023-01-03', 'Recarga de transporte'),
+('ingreso', 4, 2500000.00, '2023-01-04', 'Pago de nómina'),
+('gasto', 5, 60000.00, '2023-01-05', 'Salida de cine');
 
 SELECT * FROM categorias;
 

@@ -13,21 +13,23 @@
             <p class="subtitulo">Registra tus ingresos y gastos con claridad y estilo.</p>
 
             <form class="formulario" id="formulario-gastos">
+                <input type="hidden" id="tipoMovimiento" name="tipo" value="gasto">
+
                 <div class="campo">
                     <label class="etiqueta" for="monto">Monto</label>
-                    <input id="monto" type="text" placeholder="Ej: 250000">
+                    <input id="monto" name="monto" type="number" step="0.01" min="0" placeholder="Ej: 250000" required>
                 </div>
 
                 <div class="campo">
                     <label class="etiqueta" for="fecha">Fecha</label>
-                    <input id="fecha" type="date">
+                    <input id="fecha" name="fecha" type="date" required>
                 </div>
 
                 <div class="campo">
                     <label class="etiqueta" for="categoria">Categoría</label>
-                    <select id="categoria" name="categoria">
+                    <select id="categoria" name="categoria" required>
                         <option value="">Seleccione una categoría</option>
-                        <option value="alimentacion">Alimentación</option>
+                        <option value="alimentos">Alimentación</option>
                         <option value="vivienda">Vivienda</option>
                         <option value="transporte">Transporte</option>
                         <option value="salud">Salud</option>
@@ -38,8 +40,8 @@
                 </div>
 
                 <div class="campo campo-acciones">
-                    <button class="boton boton-ingreso" type="button">Ingreso</button>
-                    <button class="boton boton-gasto" type="button">Gasto</button>
+                    <button class="boton boton-ingreso" type="submit" data-tipo="ingreso">Ingreso</button>
+                    <button class="boton boton-gasto" type="submit" data-tipo="gasto">Gasto</button>
                 </div>
             </form>
         </section>

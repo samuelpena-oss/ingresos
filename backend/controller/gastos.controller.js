@@ -13,10 +13,22 @@ static async consultarTransacciones(request,response){
      })
 }
 static async crearregistro(request, response) {
-     const datosmovimiento = request.body;
-     const crearregistro = await model.crearRegistros(datosmovimiento);
-   
-    
+     try {
+          const datosmovimiento = request.body;
+          const crearregistro = await model.crearRegistros(datosmovimiento);
+
+          response.status(201).json({
+               ok: true,
+               data: crearregistro,
+               message: 'Movimiento registrado correctamente'
+          });
+     } catch (error) {
+          console.error('Error al crear registro:', error);
+          response.status(500).json({
+               ok: false,
+               message: 'Error al guardar el movimiento'
+          });
+     }
 }
 }
 module.exports = GastosController;
