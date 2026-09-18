@@ -6,6 +6,7 @@
     --color-borde: rgba(255, 255, 255, 0.15);
     --color-ingreso: #10b981;
     --color-gasto: #f97316;
+    --color-fondo-card: rgba(15, 23, 42, 0.75);
 }
 
 * {
@@ -27,7 +28,10 @@ body {
 
 .contenedor-principal {
     width: 100%;
-    max-width: 480px;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .panel {
@@ -116,4 +120,72 @@ select:focus {
 
 .boton-gasto {
     background: linear-gradient(135deg, var(--color-gasto), #fb923c);
+}
+
+.panel-registros {
+    padding: 20px 22px;
+}
+
+.titulo-seccion {
+    font-size: 1.2rem;
+    margin-bottom: 14px;
+}
+
+.lista-movimientos {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-movimiento {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+}
+
+.item-movimiento > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.item-movimiento strong {
+    text-transform: capitalize;
+    font-size: 0.95rem;
+}
+
+.item-movimiento span,
+.item-movimiento small {
+    color: var(--color-texto-suave);
+}
+
+.info-movimiento {
+    text-align: right;
+}
+
+.monto {
+    font-weight: 700;
+    font-size: 0.96rem;
+    color: var(--color-texto) !important;
+}
+
+.item-movimiento.ingreso .monto {
+    color: #6ee7b7 !important;
+}
+
+.item-movimiento.gasto .monto {
+    color: #fdba74 !important;
+}
+
+.vacio {
+    list-style: none;
+    padding: 12px;
+    color: var(--color-texto-suave);
+    text-align: center;
 }
