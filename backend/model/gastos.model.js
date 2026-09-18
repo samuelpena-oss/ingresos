@@ -10,12 +10,10 @@ static async consultarTransacciones(){
 
        return resultados;
 }
-static async crearCategoria({ nombre, descripcion, fecha_creacion }){
-       const [resultado] = await db.query(
-           "INSERT INTO categorias (nombre, descripcion, fecha_creacion) VALUES (?, ?, ?)",
-           [nombre, descripcion, fecha_creacion]
-       );
-       return resultado.insertId;
+static async crearRegistros(datos){
+ const resultado = await db.query
+ ("INSERT INTO movimiento (tipo,categoria_id, monto, fecha, descripcion) VALUES (?, ?, ?, ?, ?)",
+ [datos.tipo, datos.categoria_id, datos.monto, datos.fecha, datos.descripcion])      
 }
 }
 module.exports = GastosModel
