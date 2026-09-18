@@ -1,7 +1,7 @@
 const db = require("../confing/db")
 class GastosModel{
 static async consultarGastos(){
-       const [resultados] = await db.query("SELECT * FROM categorias ORDER BY id DESC");
+       const [resultados] = await db.query("SELECT DISTINCT nombre FROM categorias ORDER BY nombre ASC");
 
        return resultados;
 }

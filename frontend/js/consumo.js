@@ -2,11 +2,22 @@ const categoria = document.getElementById('categoria');
 const listaMovimientos = document.getElementById('lista-movimientos');
 
 async function cargarCategorias() {
-    const respuesta = await fetch('http://localhost:4000/api/categorias');
-    const datos = await respuesta.json();
+    if (!categoria) return;
 
-    for (let i = 0; i < datos.data.length; i++) {
-        categoria.innerHTML += `<option>${datos.data[i].nombre}</option>`;
+    categoria.innerHTML = '<option value="">Seleccione una categoría</option>';
+
+    try {
+        const respuesta = await fetch('http://localhost:4000/api/categorias');
+        const datos = await respuesta.json();
+        const categorias = Array.isArray(datos?.data) ? datos.data : [];
+
+        const nombresUnicos = [...new Set(categorias.map((item) => item?.nombre).filter(Boolean))];
+
+        nombresUnicos.forEach((nombre) => {
+            categoria.innerHTML += `<option value="${nombre}">${nombre}</option>`;
+        });
+    } catch (error) {
+        console.error('No se pudieron cargar las categorías:', error);
     }
 }
 
